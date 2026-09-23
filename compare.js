@@ -1,3 +1,5 @@
+<!-- Compare Hospitals JavaScript -->
+
 const ids=compareList();const count=document.getElementById('compareCount'),table=document.getElementById('compareTable');
 async function renderCompare(){
   count.textContent=`${ids.length} hospital${ids.length===1?'':'s'} selected`;

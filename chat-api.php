@@ -10,18 +10,42 @@
  *
  * SETUP:
  * 1. Get a free API key at https://console.groq.com/keys
- * 2. Paste it into GROQ_API_KEY below.
- * 3. Put this file in the same folder your site can reach, e.g.
- *    C:\wamp64\www\yoursite\chat-api.php
- * 4. In chatbot-widget.js, set API_URL to point at this file's
- *    URL, e.g. "http://localhost/yoursite/chat-api.php"
+
  * -----------------------------------------------------------------
  */
 
 // ---- CONFIG -------------------------------------------------------
-define('GROQ_API_KEY', 'YOUR_GROQ_API_KEY_HERE');
-define('GROQ_MODEL', 'llama-3.3-70b-versatile'); // any current Groq model
-define('SYSTEM_PROMPT', 'You are a friendly, concise assistant embedded on a website. Keep answers short and helpful.');
+// READ THE GROQ API KEY FROM THE .ENV FILE.
+$envFile = __DIR__ . '/.env';
+
+if (file_exists($envFile)) {
+    $envLines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+    foreach ($envLines as $envLine) {
+        $envLine = trim($envLine);
+
+        // IGNORE COMMENTS AND EMPTY LINES.
+        if ($envLine === '' || strpos($envLine, '#') === 0) {
+            continue;
+        }
+
+        // SPLIT THE KEY AND VALUE.
+        list($envKey, $envValue) = array_pad(explode('=', $envLine, 2), 2, '');
+
+        if (trim($envKey) === 'GROQ_API_KEY') {
+            define('GROQ_API_KEY', trim($envValue));
+            break;
+        }
+    }
+}
+
+// USE AN EMPTY VALUE IF THE KEY WAS NOT FOUND.
+if (!defined('GROQ_API_KEY')) {
+    define('GROQ_API_KEY', '');
+}
+define('GROQ_MODEL', 'llama-3.3-70b-versatile'); 
+define('SYSTEM_PROMPT', 'You are a friendly, concise assistant 
+embedded on a website. Keep answers short and helpful.');
 // ---------------------------------------------------------------
 
 header('Content-Type: application/json');
@@ -65,7 +89,7 @@ if (mb_strlen($userMessage) > 2000) {
     exit;
 }
 
-if (GROQ_API_KEY === 'YOUR_GROQ_API_KEY_HERE') {
+if (GROQ_API_KEY === 'GROQ_API_KEY') {
     http_response_code(500);
     echo json_encode(['error' => 'Server is missing a Groq API key. Set GROQ_API_KEY in chat-api.php.']);
     exit;
