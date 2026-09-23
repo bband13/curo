@@ -1,0 +1,411 @@
+<!-- CURO HTML FILE - THIS FILE BUILDS THE PAGE STRUCTURE. -->
+<!-- TELL THE BROWSER THIS IS AN HTML5 PAGE. -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- PAGE SETTINGS AND FILE LINKS START HERE. -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curo — find and compare hospitals, treatments, facilities and estimated costs." />
+  <title>Curo — Find care with confidence</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!-- VISIBLE PAGE CONTENT STARTS HERE. -->
+<body>
+<!-- SHOW THE SMALL INFORMATION BAR AT THE TOP. -->
+  <div class="top-strip">
+    <div class="container top-strip-inner">
+      <span data-i18n="topLine">Healthcare information made easier</span>
+      <span><h3>RAYAT BAHRA PROFESSIONAL UNIVERSITY</h3></span>
+      <button class="accessibility-link" id="accessibilityBtn" type="button">Accessibility</button>
+    </div>
+  </div>
+
+<!-- PAGE SETTINGS AND FILE LINKS START HERE. -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Curo home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span>
+        </span>
+        <span class="brand-name">curo</span>
+      </a>
+
+      <!-- SHOW THE MAIN NAVIGATION LINKS. -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#find-care" data-i18n="findCare">Find care</a>
+        <a href="#how-it-works" data-i18n="howItWorks">How it works</a>
+        <a href="#health-assistant" data-i18n="assistant">Health assistant</a>
+      </nav>
+
+      <!-- SHOW THE LANGUAGE AND MENU BUTTONS. -->
+      <div class="nav-actions">
+        <button class="language-btn" id="languageBtn" type="button" aria-expanded="false">
+          <span aria-hidden="true">◎</span> English <span class="chevron">⌄</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SHOW THE MOBILE MENU AND LANGUAGE OPTIONS. -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#find-care" data-i18n="findCare">Find care</a>
+      <a href="#how-it-works" data-i18n="howItWorks">How it works</a>
+      <a href="#health-assistant" data-i18n="assistant">Health assistant</a>
+      <button type="button" id="mobileLanguage">English · Change language</button>
+    </div>
+
+    <!-- SHOW THE LANGUAGE OPTIONS. -->
+    <div class="language-menu" id="languageMenu">
+      <button type="button" data-lang="English">English</button>
+      <button type="button" data-lang="हिंदी">हिंदी</button>
+      <button type="button" data-lang="ਪੰਜਾਬੀ">ਪੰਜਾਬੀ</button>
+      <button type="button" data-lang="বাংলা">বাংলা</button>
+      <button type="button" data-lang="தமிழ்">தமிழ்</button>
+    </div>
+  </header>
+
+<!-- MAIN PAGE CONTENT STARTS HERE. -->
+  <main id="home">
+<!-- SHOW THE MAIN CURO INTRODUCTION AND SEARCH AREA. -->
+    <section class="hero">
+      <div class="hero-orb hero-orb-one"></div>
+      <div class="hero-orb hero-orb-two"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> Care that starts with clarity</div>
+          <h1><span data-i18n="heroTitle">Find the right care,</span> <em data-i18n="heroEm">without the guesswork.</em></h1>
+          <p class="hero-text" data-i18n="heroText">Search hospitals by condition, location, treatment, facilities and estimated cost — all in one simple place.</p>
+
+<!-- THIS AREA LETS THE USER SEARCH FOR CARE. -->
+          <div class="search-card" id="find-care">
+            <div class="search-row">
+              <label class="search-field">
+                <span class="field-icon">⌕</span>
+                <span>
+                  <small data-i18n="needHelp">What do you need help with?</small>
+                  <input id="conditionInput" type="text" placeholder="Try “heart care” or “diabetes”" autocomplete="off" />
+                </span>
+              </label>
+              <label class="search-field location-field">
+                <span class="field-icon">⌖</span>
+                <span>
+                  <small data-i18n="where">Where?</small>
+                  <input id="locationInput" type="text" placeholder="City or location" autocomplete="off" />
+                </span>
+              </label>
+              <button class="primary-btn search-btn" id="searchBtn" type="button"><span data-i18n="findCare">Find care</span> <span>→</span></button>
+            </div>
+            <div class="suggestion-row">
+              <span>Popular:</span>
+              <button type="button" class="suggestion" data-search="Heart care">Heart care</button>
+              <button type="button" class="suggestion" data-search="Diabetes">Diabetes</button>
+              <button type="button" class="suggestion" data-search="Bone & joint">Bone & joint</button>
+              <button type="button" class="suggestion" data-search="Cancer care">Cancer care</button>
+            </div>
+            <div class="search-message" id="searchMessage" role="status"></div>
+          </div>
+
+          <div class="trust-line">
+            <span><b>✓</b> Clear information</span>
+            <span><b>✓</b> Easy comparison</span>
+            <span><b>✓</b> Multiple languages</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay">
+          <div class="hero-card hero-card-main">
+            <div class="hero-card-top">
+              <span class="mini-label">Nearby care</span>
+              <span class="verified-pill">✓ Verified</span>
+            </div>
+            <div class="hospital-preview">
+              <div class="hospital-icon">✚</div>
+              <div>
+                <strong>CityCare Hospital</strong>
+                <span>Cardiology · 2.4 km</span>
+              </div>
+              <span class="arrow-circle">→</span>
+            </div>
+            <div class="availability">
+              <div><span class="available-dot"></span> Emergency care</div>
+              <div><span class="available-dot"></span> ICU available</div>
+              <div><span class="available-dot"></span> Diagnostics</div>
+            </div>
+            <div class="cost-preview">
+              <span>Estimated treatment range</span>
+              <strong>₹25,000 — ₹1.2L</strong>
+            </div>
+          </div>
+
+          <!-- SHOW THE FLOATING NOTES ON THE HERO IMAGE. -->
+          <div class="floating-note note-top">
+            <span class="note-icon">⌕</span>
+            <div><strong>Search simply</strong><small>Even in everyday words</small></div>
+          </div>
+
+          <div class="floating-note note-bottom">
+            <span class="note-icon note-ai">✦</span>
+            <div><strong>Ask Curo</strong><small>Need help deciding where to start?</small></div>
+          </div>
+
+          <!-- SHOW THE SHAPE ELEMENTS BEHIND THE HERO IMAGE. -->
+          <div class="hero-shape" aria-hidden="true">
+            <span class="shape-cross cross-one"></span>
+            <span class="shape-cross cross-two"></span>
+            <span class="shape-circle"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOW THE QUICK CATEGORY BUTTONS. -->
+    <section class="quick-section section">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="eyebrow" data-i18n="startKnow">Start with what you know</span>
+          <h2 data-i18n="lookingFor">What are you looking for?</h2>
+          <p data-i18n="commonNeed">You don't need to know the medical term. Choose a common care need to get started.</p>
+        </div>
+
+        <!-- SHOW THE CATEGORY BUTTONS. -->
+        <div class="category-grid">
+          <button class="category-card reveal" data-search="Heart care">
+            <span class="category-icon heart">♡</span>
+            <strong>Heart care</strong>
+            <small>Cardiology & cardiac care</small>
+            <span class="category-arrow">→</span>
+          </button>
+          <button class="category-card reveal" data-search="Diabetes">
+            <span class="category-icon diabetes">◉</span>
+            <strong>Diabetes</strong>
+            <small>Diabetes & endocrinology</small>
+            <span class="category-arrow">→</span>
+          </button>
+          <button class="category-card reveal" data-search="Bone & joint">
+            <span class="category-icon bone">⌁</span>
+            <strong>Bone & joint</strong>
+            <small>Orthopaedics & mobility</small>
+            <span class="category-arrow">→</span>
+          </button>
+          <button class="category-card reveal" data-search="Cancer care">
+            <span class="category-icon cancer">✣</span>
+            <strong>Cancer care</strong>
+            <small>Oncology & treatment</small>
+            <span class="category-arrow">→</span>
+          </button>
+          <button class="category-card reveal" data-search="Women's health">
+            <span class="category-icon women">♡</span>
+            <strong>Women's health</strong>
+            <small>Gynaecology & maternity</small>
+            <span class="category-arrow">→</span>
+          </button>
+          <button class="category-card reveal" data-search="General care">
+            <span class="category-icon general">+</span>
+            <strong>General care</strong>
+            <small>Everyday medical needs</small>
+            <span class="category-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOW THE CURO ASSISTANT CHATBOT. -->
+    <section class="assistant-section section" id="health-assistant">
+      <div class="container assistant-panel reveal">
+        <div class="assistant-copy">
+          <span class="eyebrow" data-i18n="meetGuide">Meet your care guide</span>
+          <h2><span data-i18n="notSure">Not sure where to start?</span> <em data-i18n="askCuro">Ask Curo.</em></h2>
+          <p>
+            Describe what you need in your own words. Curo can help you understand what type of care to look for and show matching hospitals.
+          </p>
+          <button class="secondary-btn" id="openAssistant" type="button">Talk to Curo <span>→</span></button>
+          <p class="microcopy">General information only — not a diagnosis or a substitute for a doctor.</p>
+        </div>
+
+        <!-- SHOW A DEMO OF THE CURO ASSISTANT CHAT. -->
+        <div class="chat-preview" aria-label="Curo assistant preview">
+          <div class="chat-header">
+            <div class="chat-avatar">✦</div>
+            <div><strong>Curo assistant</strong><small>Here to help you find care</small></div>
+            <span class="online-dot"></span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-bubble assistant-bubble">Hi! Tell me what you need help with. You can use simple words.</div>
+            <div class="chat-bubble user-bubble">I need a hospital for heart treatment near me.</div>
+            <div class="chat-bubble assistant-bubble">I can help you find hospitals with cardiac and emergency services.</div>
+            <div class="chat-actions">
+              <button type="button">Find hospitals</button>
+              <button type="button">Compare costs</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOW THE "HOW IT WORKS" SECTION. -->
+    <section class="how-section section" id="how-it-works">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">How Curo works</span>
+          <h2>Less searching. More understanding.</h2>
+          <p>Designed around the way people actually look for healthcare.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-number">01</div>
+            <div class="step-icon">⌕</div>
+            <h3>Tell us what you need</h3>
+            <p>Search with a condition, treatment or even everyday words.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-number">02</div>
+            <div class="step-icon">⇄</div>
+            <h3>Compare your options</h3>
+            <p>See location, facilities, estimated costs and available services together.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-number">03</div>
+            <div class="step-icon">✓</div>
+            <h3>Choose with clarity</h3>
+            <p>Understand your options before contacting or visiting a hospital.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOW A DEMO COMPARISON OF HOSPITALS. -->
+    <section class="compare-section section">
+      <div class="container compare-grid">
+        <div class="compare-copy reveal">
+          <span class="eyebrow">Built for comparison</span>
+          <h2>Healthcare information shouldn't feel like a puzzle.</h2>
+          <p>
+            Curo brings important details into one view so people can compare hospitals without opening ten different websites.
+          </p>
+          <a class="text-link" href="#find-care">Explore hospitals <span>→</span></a>
+        </div>
+
+        <div class="comparison-card reveal">
+          <div class="comparison-title">
+            <div>
+              <span>Heart care · New Delhi</span>
+              <strong>Compare hospitals</strong>
+            </div>
+            <span class="compare-count">2 selected</span>
+          </div>
+          <div class="comparison-row comparison-head">
+            <span>Hospital</span><span>Distance</span><span>Est. cost</span><span>Emergency</span>
+          </div>
+          <div class="comparison-row">
+            <strong><span class="mini-hospital">✚</span> CityCare</strong>
+            <span>2.4 km</span><span>₹25k–₹1.2L</span><span class="yes">✓</span>
+          </div>
+          <div class="comparison-row">
+            <strong><span class="mini-hospital second">✚</span> Green Valley</strong>
+            <span>4.8 km</span><span>₹40k–₹1.6L</span><span class="yes">✓</span>
+          </div>
+          <div class="comparison-footer">
+            <span>Information shown for demonstration</span>
+            <button type="button" class="small-btn">View comparison →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+     
+    <!-- LANGUAGE SETTING -->
+    <section class="language-section section">
+      <div class="container language-panel reveal">
+        <div>
+          <span class="eyebrow" data-i18n="morePeople">Healthcare for more people</span>
+          <h2 data-i18n="languageTitle">Use Curo in the language you're comfortable with.</h2>
+          <p data-i18n="languageText">Switch languages without losing the information you need.</p>
+        </div>
+        <div class="language-pills">
+          <button class="active" type="button">English</button>
+          <button type="button">हिंदी</button>
+          <button type="button">ਪੰਜਾਬੀ</button>
+          <button type="button">বাংলা</button>
+          <button type="button">தமிழ்</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOW THE CALL TO ACTION SECTION. -->
+    <section class="cta-section">
+      <div class="container cta-inner reveal">
+        <div>
+          <span class="eyebrow" data-i18n="ready">Ready when you are</span>
+          <h2 data-i18n="ctaTitle">Find care with a little more clarity.</h2>
+        </div>
+        <button class="primary-btn light-btn" id="ctaSearch" type="button"><span data-i18n="startSearching">Start searching</span> <span>→</span></button>
+      </div>
+    </section>
+  </main>
+
+<!-- SHOW THE WEBSITE FOOTER. -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+          <span class="brand-name">curo</span>
+        </a>
+        <p>Making healthcare information easier to find, understand and compare.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#find-care" data-i18n="findCare">Find care</a>
+        <a href="#how-it-works" data-i18n="howItWorks">How it works</a>
+        <a href="#health-assistant" data-i18n="assistant">Health assistant</a>
+        <a href="#home">Accessibility</a>
+      </div>
+      <div class="footer-note">
+        <span data-i18n="academic">Academic prototype</span>
+        <h5>RAYAT BAHRA PROFESSIONAL UNIVERSITY
+          Event: Technovate-2026
+          Team name : Elite Sparrow
+          Made by: Sanjiv Dogra and Ishant kumar</h5>
+        
+        <small>Hospital data shown on this demo is illustrative.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHOW A TOAST MESSAGE AREA. -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- SHOW THE CURO ASSISTANT CHATBOT MODAL. -->
+  <div class="assistant-modal" id="assistantModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="assistant-window" role="dialog" aria-modal="true" aria-labelledby="assistantTitle">
+      <div class="assistant-window-head">
+        <div>
+          <span class="eyebrow">Curo health assistant</span>
+          <h2 id="assistantTitle">How can I help?</h2>
+        </div>
+        <button class="close-btn" id="closeAssistant" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="assistant-window-body" id="assistantMessages">
+        <div class="chat-bubble assistant-bubble">Hi! Tell me what you need help with. You can say it in your own words.</div>
+      </div>
+      <div class="assistant-quick">
+        <button type="button" data-chat="Find hospitals for heart care">Heart care</button>
+        <button type="button" data-chat="I need a hospital near me">Near me</button>
+        <button type="button" data-chat="How can I compare costs?">Compare costs</button>
+      </div>
+      <form class="assistant-input" id="assistantForm">
+        <input id="assistantInput" type="text" placeholder="Type your question..." autocomplete="off" />
+        <button type="submit" aria-label="Send">→</button>
+      </form>
+    </div>
+  </div>
+
+<!-- LOAD THE JAVASCRIPT NEEDED BY THIS PAGE. -->
+  <script src="script.js"></script><script src="language.js"></script>
+  <!-- LOAD THE JAVASCRIPT FOR THE CHATBOT WIDGET. -->
+  <script src="chatbot-widget.js"></script>
+</body>
+</html>
