@@ -10,48 +10,46 @@
  *
  * SETUP:
  * 1. Get a free API key at https://console.groq.com/keys
-
  * -----------------------------------------------------------------
  */
 
 // ---- CONFIG -------------------------------------------------------
-// READ THE GROQ API KEY FROM THE .ENV FILE.
+define('GROQ_MODEL', 'llama-3.3-70b-versatile'); 
+define('SYSTEM_PROMPT', 'You are a friendly, concise assistant embedded on a website. Keep answers short and helpful.');
+
+// Safe fallback definition
+$groq_api_key_val = '';
+
+// READ THE GROQ API KEY FROM A LOCAL .env FILE
 $envFile = __DIR__ . '/.env';
 
 if (file_exists($envFile)) {
     $envLines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
     foreach ($envLines as $envLine) {
         $envLine = trim($envLine);
 
-        // IGNORE COMMENTS AND EMPTY LINES.
+        // Ignore comments and empty lines
         if ($envLine === '' || strpos($envLine, '#') === 0) {
             continue;
         }
 
-        // SPLIT THE KEY AND VALUE.
+        // Split the key and value
         list($envKey, $envValue) = array_pad(explode('=', $envLine, 2), 2, '');
 
         if (trim($envKey) === 'GROQ_API_KEY') {
-            define('GROQ_API_KEY', trim($envValue));
+            $groq_api_key_val = trim($envValue);
             break;
         }
     }
 }
 
-// USE AN EMPTY VALUE IF THE KEY WAS NOT FOUND.
-if (!defined('GROQ_API_KEY')) {
-    define('GROQ_API_KEY', '');
-}
-define('GROQ_MODEL', 'llama-3.3-70b-versatile'); 
-define('SYSTEM_PROMPT', 'You are a friendly, concise assistant 
-embedded on a website. Keep answers short and helpful.');
-// ---------------------------------------------------------------
+// Define the final constant securely
+define('GROQ_API_KEY', $groq_api_key_val);
+// -------------------------------------------------------------------
 
 header('Content-Type: application/json');
 
-// Allow the widget to call this from the same site. If your widget
-// is ever served from a different origin, adjust this header.
+// Allow the widget to call this from the same site.
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -89,9 +87,9 @@ if (mb_strlen($userMessage) > 2000) {
     exit;
 }
 
-if (GROQ_API_KEY === 'GROQ_API_KEY') {
+if (GROQ_API_KEY === '') {
     http_response_code(500);
-    echo json_encode(['error' => 'Server is missing a Groq API key. Set GROQ_API_KEY in chat-api.php.']);
+    echo json_encode(['error' => 'Server is missing a Groq API key. Set GROQ_API_KEY in the local .env file.']);
     exit;
 }
 

@@ -17,7 +17,7 @@
   'use strict';
 
   // ---- CONFIG -------------------------------------------------------
-  const API_URL = 'chat-api.php';       // path to the PHP backend
+  const API_URL = 'http://localhost/coro/curo/chat-api.php';       // path to the PHP backend
   const BOT_NAME = 'Assistant';
   const WELCOME_MESSAGE = "Hi! I'm here to help. Ask me anything.";
   const ACCENT_COLOR = '#2f6f4f';        // change to match your site
